@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --orange: #fe7033;
+  --white: white;
+  --black: black;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Monigue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Monigue.otf) format('otf');
+  }
+}
