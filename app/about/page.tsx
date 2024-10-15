@@ -31,11 +31,11 @@ const About = () => {
             <div className="font-monigue text-[20px] tracking-[.04em] leading-5 ">
               <span className="text-orange">Mohmaya</span> was born from a
               desire to reclaim streetwear’s origins. Before it became just
-              "oversized tees" and a flood of imitation, streetwear was a voice
-              for the unheard—a canvas for artists to channel the frustrations
-              and truths of the people. While high fashion pandered to the
-              elite, streetwear took the simplest of garments and used them to
-              provoke thought and disrupt the status quo.
+              &ldquo;oversized tees&rdquo; and a flood of imitation, streetwear
+              was a voice for the unheard—a canvas for artists to channel the
+              frustrations and truths of the people. While high fashion pandered
+              to the elite, streetwear took the simplest of garments and used
+              them to provoke thought and disrupt the status quo.
               <br />
               <br />
               We’re not just creating clothes—we’re crafting a narrative. A
