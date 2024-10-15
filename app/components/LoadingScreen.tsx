@@ -9,6 +9,7 @@ const LoadingScreen = (props: { progress: number; setSuccess: any }) => {
     e.stopPropagation();
     props.setSuccess(true);
   };
+
   return (
     <div
       className="flex items-center justify-center h-screen w-screen font-monigue text-[18px] bg-cover bg-center"
