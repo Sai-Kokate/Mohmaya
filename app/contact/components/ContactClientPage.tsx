@@ -22,7 +22,7 @@ const ContactClientPage = ({ isMobile = false }: ContactClientPageProps) => {
             contact us.
           </h1>
           <div className="w-full">
-            <ContactUsForm isMobile={isMobile} />
+            <ContactUsForm />
           </div>
           <Link href="/">
             <span>&lt; Back to Shop</span>
