@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { SlideContentType } from "../constants/SlidesContent";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const DesktopSlide = (slide: SlideContentType) => {
   const [lowInnerHeight, setLowInnerHeight] = useState(false);
