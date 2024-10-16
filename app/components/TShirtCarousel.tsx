@@ -14,8 +14,15 @@ import { SlideContentType, SlidesContent } from "../constants/SlidesContent";
 import Autoplay from "embla-carousel-autoplay";
 import { EmblaOptionsType } from "embla-carousel";
 import DesktopSlide from "./DesktopSlide";
+import MobileSlide from "./MobileSlide";
 
-export default function TShirtCarousel() {
+interface TShirtCarouselProps {
+  isMobile?: boolean;
+}
+
+export default function TShirtCarousel({
+  isMobile = false,
+}: TShirtCarouselProps) {
   const [api, setApi] = useState<CarouselApi | undefined>();
   const [current, setCurrent] = useState<number>(0);
 
@@ -46,7 +53,9 @@ export default function TShirtCarousel() {
     <div className="relative w-full h-full">
       <Carousel
         setApi={setApi}
-        className="w-full h-full flex justify-center items-center mx-auto"
+        className={`w-full h-full flex justify-center mx-auto ${
+          !isMobile ? "items-center" : "items-start"
+        }`}
         plugins={[plugin.current]}
         opts={carouselOptions}
       >
@@ -54,7 +63,11 @@ export default function TShirtCarousel() {
           {SlidesContent && SlidesContent.length > 0 ? (
             SlidesContent.map((slide: SlideContentType, index: number) => (
               <CarouselItem key={index}>
-                <DesktopSlide {...slide} />
+                {isMobile ? (
+                  <MobileSlide {...slide} />
+                ) : (
+                  <DesktopSlide {...slide} />
+                )}
               </CarouselItem>
             ))
           ) : (
@@ -66,11 +79,17 @@ export default function TShirtCarousel() {
           )}
         </CarouselContent>
 
-        <div className="absolute inset-0 flex items-center justify-between pointer-events-none p-[20px]">
+        <div
+          className={`absolute flex items-center justify-between pointer-events-none ${
+            isMobile ? "p-[10px] w-full" : "inset-0 p-[20px]"
+          } `}
+        >
           <Button
             variant="ghost"
             size="icon"
-            className="h-[40px] w-[40px] rounded-full pointer-events-auto !important"
+            className={`h-[40px] w-[40px] rounded-full pointer-events-auto !important ${
+              isMobile && "absolute top-48 left-3 "
+            }`}
             onClick={scrollPrev}
           >
             <ChevronLeft className="h-[40px] w-[40px] text-white hover:text-orange" />
@@ -78,7 +97,9 @@ export default function TShirtCarousel() {
           <Button
             variant="ghost"
             size="icon"
-            className="h-[40px] w-[40px] rounded-full pointer-events-auto !important"
+            className={` h-[40px] w-[40px] rounded-full pointer-events-auto !important ${
+              isMobile && "absolute top-48 right-3"
+            }`}
             onClick={scrollNext}
           >
             <ChevronRight className="h-[40px] w-[40px] text-white hover:text-orange" />

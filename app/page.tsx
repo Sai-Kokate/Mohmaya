@@ -1,30 +1,20 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import LoadingScreen from "./components/LoadingScreen";
-import HomeScreen from "./components/HomeScreen";
+import { headers } from "next/headers";
+import ClientHome from "./components/ClientHome";
 
 export default function Home() {
-  const [progress, setProgress] = useState(0);
-  const [success, setSuccess] = useState(false);
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isMobile = /Mobi|Android|iPhone|IEMobile|Opera Mini/i.test(userAgent);
 
-  // Progress bar logic
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return oldProgress + 1; // Increase by 1 every time
-      });
-    }, 50); // Updates every 50ms, completing in 5 seconds
-    return () => clearInterval(interval);
-  }, []);
-
-  return !success ? (
-    <LoadingScreen progress={progress} setSuccess={setSuccess} />
-  ) : (
-    <HomeScreen />
+  // Check for the cookie 'animationPlayed'
+  const cookies = headersList.get("cookie") || "";
+  const animationPlayed = cookies
+    .split("; ")
+    .find((row) => row.startsWith("animationPlayed="));
+  const hasAnimationPlayed = animationPlayed
+    ? animationPlayed.split("=")[1] === "true"
+    : false;
+  return (
+    <ClientHome isMobile={isMobile} hasAnimationPlayed={hasAnimationPlayed} />
   );
 }
