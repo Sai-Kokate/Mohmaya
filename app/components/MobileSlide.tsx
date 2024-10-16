@@ -11,11 +11,14 @@ const MobileSlide = (slide: SlideContentType) => {
           alt={slide.imageAltText}
           width={258}
           height={250}
-          priority
         />
       </div>
 
-      <div className="flex justify-start items-center w-full gap-5">
+      <div
+        className={`flex justify-start items-center w-full gap-5 ${
+          slide.className && slide.className
+        }`}
+      >
         <div className="w-1/2 flex flex-col justify-start items-start gap-5">
           <h1 className="text-left tracking-[0.035em] cursor-default font-monigue text-[16px] font-normal leading-4 text-white">
             {slide.leftDescription}

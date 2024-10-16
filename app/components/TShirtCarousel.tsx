@@ -35,10 +35,12 @@ export default function TShirtCarousel({
 
   const scrollPrev = useCallback(() => {
     api?.scrollPrev();
+    plugin.current.stop(); // Stop autoplay when interacting with the previous button
   }, [api]);
 
   const scrollNext = useCallback(() => {
     api?.scrollNext();
+    plugin.current.stop(); // Stop autoplay when interacting with the next button
   }, [api]);
 
   useEffect(() => {
@@ -117,10 +119,11 @@ export default function TShirtCarousel({
                 "w-8 h-8 rounded-full transition-all duration-50 text-white text-[16px] border-white border-2 ",
                 current === index ? "bg-orange w-8" : "bg-white/50"
               )}
-              onClick={() => api?.scrollTo(index)}
-            >
-              {index + 1}
-            </button>
+              onClick={() => {
+                api?.scrollTo(index);
+                plugin.current.stop(); // Stop autoplay on click interaction
+              }}
+            ></button>
           ))}
       </div>
     </div>

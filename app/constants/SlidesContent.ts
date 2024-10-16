@@ -10,6 +10,7 @@ export type SlideContentType = {
   rightImageUrl: string;
   buttonText: string;
   buttonUrl: string;
+  className?: string;
 };
 
 export const SlidesContent: SlideContentType[] = [
@@ -50,6 +51,7 @@ export const SlidesContent: SlideContentType[] = [
     rightImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/right-image.avif `,
     buttonText: "SHOP NOW",
     buttonUrl: "https://shop.mohmaya.co/products/restricted",
+    className: "mt-5",
   },
   {
     index: 4,
@@ -75,6 +77,7 @@ export const SlidesContent: SlideContentType[] = [
     rightImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/right-image.avif `,
     buttonText: "SHOP NOW",
     buttonUrl: "https://shop.mohmaya.co/products/krodha-basic-red",
+    className: "mt-5",
   },
   {
     index: 6,

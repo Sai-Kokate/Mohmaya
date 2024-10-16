@@ -21,7 +21,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
   ) => {
     e.stopPropagation();
     setSuccess(true);
-    setCookie("animationPlayed", "true", 15);
+    setCookie("animationPlayed", "true", 5);
   };
 
   return (

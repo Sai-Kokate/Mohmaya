@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { SlideContentType } from "../constants/SlidesContent";
+import { use, useEffect, useState } from "react";
 
 const DesktopSlide = (slide: SlideContentType) => {
+  const [lowInnerHeight, setLowInnerHeight] = useState(false);
+
+  useEffect(() => {
+    if (window && window?.innerHeight < 601) {
+      setLowInnerHeight(true);
+    }
+  }, []);
+
   return (
     <div className="flex flex-col justify-start items-center w-full">
       <div className="max-w-[1200px] max-h-[460px] grid grid-cols-[.6fr_1fr_.6fr] grid-rows-auto auto-cols-[1fr] place-items-center gap-[50px] w-full">
-        <div className="flex flex-col justify-start items-end w-full gap-[25px]">
+        <div className="flex flex-col justify-start items-end w-full gap-[25px] pl-2">
           <h1 className="text-left tracking-[0.035em] cursor-default font-monigue text-[20px] font-normal leading-[1.1] text-white">
             {slide.leftDescription}
           </h1>
@@ -24,14 +33,13 @@ const DesktopSlide = (slide: SlideContentType) => {
           <Image
             src={slide.tshirtImageUrl}
             alt={slide.imageAltText}
-            width={460}
-            height={460}
-            priority
+            width={lowInnerHeight ? 350 : 460}
+            height={lowInnerHeight ? 350 : 460}
           />
         </div>
 
         {/* Right column with flex layout */}
-        <div className="flex flex-col justify-start items-start w-full gap-[40px]">
+        <div className="flex flex-col justify-start items-start w-full gap-[40px] pr-2">
           {/* Nested flex layout for image and button */}
           <div className="flex flex-col justify-start items-start gap-[7px]">
             {/* Right image with rotation */}

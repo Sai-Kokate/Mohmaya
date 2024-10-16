@@ -7,7 +7,7 @@ export default function setCookie(
   let expires = "";
   if (mins) {
     const date = new Date();
-    date.setTime(date.getTime() + mins * 60 * 60 * 1000);
+    date.setTime(date.getTime() + mins * 60 * 1000);
     expires = "; expires=" + date.toUTCString();
   }
   document.cookie =
