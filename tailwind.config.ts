@@ -62,6 +62,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      screens: {
+        "h-sm": { raw: "(max-height: 600px)" }, // Custom height-based breakpoint
+      },
     },
   },
   plugins: [tailwindcssAnimate],

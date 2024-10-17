@@ -6,12 +6,16 @@ const MobileSlide = (slide: SlideContentType) => {
   return (
     <div className="flex flex-col justify-start items-center gap-5 w-screen h-full mt-[80px] p-5 text-white">
       <div className="flex justify-center items-center w-full ">
-        <Image
-          src={slide.tshirtImageUrl}
-          alt={slide.imageAltText}
-          width={258}
-          height={250}
-        />
+        <div className="h-[250px] w-[250px]">
+          <Image
+            src={slide.tshirtImageUrl}
+            alt={slide.imageAltText}
+            fill
+            placeholder="blur"
+            blurDataURL={slide.tshirtLoadingImageUrl}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
 
       <div

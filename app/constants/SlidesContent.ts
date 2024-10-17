@@ -1,8 +1,10 @@
 import { CONFIG } from "./config";
+// import tshirtMokshPraptiBlackWebp from "/public/tshirt-moksh-prapti-black.webp";
 
 export type SlideContentType = {
   index: number;
   tshirtImageUrl: string;
+  tshirtLoadingImageUrl?: string;
   imageAltText: string;
   leftDescription: string;
   leftImageUrl: string;
@@ -17,6 +19,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 1,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-moksh-prapti-black.gif`,
+    tshirtLoadingImageUrl: `/tshirt-moksh-prapti-black.webp`,
     imageAltText: "moksh-prapti",
     leftDescription:
       "Good people, carry dark secrets. A tale of a spirit getting lonely in heaven, or a man’s twisted perspective on moksh turned menace.",
@@ -30,6 +33,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 2,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-bulletproof-cream.gif`,
+    tshirtLoadingImageUrl: `tshirt-bulletproof-cream.webp`,
     imageAltText: "bulletproof",
     leftDescription:
       "This one for our right to say something you might not like. A call for how ugly or morally muddy it gets.",
@@ -43,6 +47,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 3,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-restricted-cream.gif`,
+    tshirtLoadingImageUrl: `/tshirt-restricted-cream.webp`,
     imageAltText: "restricted",
     leftDescription:
       "They don’t want me to say this Hey listen, your votes don’t count. The government is watching you.",
@@ -56,6 +61,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 4,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-war-on-mumbai-black.gif`,
+    tshirtLoadingImageUrl: `/tshirt-war-on-mumbai-black.webp`,
     imageAltText: "war-on-mumbai",
     leftDescription:
       "The 26/11 attacks proved two things. we stand united in grief.",
@@ -69,6 +75,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 5,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-krodha-basic-red.gif`,
+    tshirtLoadingImageUrl: `/tshirt-krodha-basic-red.webp`,
     imageAltText: "krodha-basic-red",
     leftDescription: "Anger begets anger. Hate begets hate.",
     leftImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/left-image.avif `,
@@ -82,6 +89,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 6,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-ahamkara-basic-black.gif`,
+    tshirtLoadingImageUrl: `/tshirt-ahamkara-basic-black.webp`,
     imageAltText: "ahamkara-basic-black",
     leftDescription:
       "Wealth? Fame? Money? You might have it all, There will always be bigger fish in the pond.",
@@ -95,6 +103,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 7,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-moh-basic-purple.gif`,
+    tshirtLoadingImageUrl: `/tshirt-moh-basic-purple.webp`,
     imageAltText: "moh-basic-purple",
     leftDescription: "Your perceived reality is a comfortable facade",
     leftImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/left-image.avif `,
@@ -107,6 +116,7 @@ export const SlidesContent: SlideContentType[] = [
   {
     index: 8,
     tshirtImageUrl: `${CONFIG.STATIC_IMGAE_ASSETS_URL}/tshirt-lobha-basic-green.gif`,
+    tshirtLoadingImageUrl: `/tshirt-lobha-basic-green.webp`,
     imageAltText: "lobha-basic-green",
     leftDescription:
       "Greed is all around you, are you smart enough to swim past the bait?",

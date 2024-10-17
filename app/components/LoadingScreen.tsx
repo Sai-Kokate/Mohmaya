@@ -25,12 +25,15 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
   };
 
   return (
-    <div
-      className="flex items-center justify-center h-screen w-screen font-monigue text-[18px] bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${CONFIG.STATIC_IMGAE_ASSETS_URL}/black-textured-background.avif)`,
-      }}
-    >
+    <div className="relative flex items-center justify-center h-screen w-screen font-monigue text-[18px] bg-cover bg-center">
+      <Image
+        src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/black-textured-background.avif`}
+        alt={"loading-page-loader-background"}
+        layout="fill"
+        objectFit="cover"
+        className="absolute top-0 left-0 w-full h-full"
+        priority
+      />
       {/* Outer container */}
       <div
         className={`border-[3.5px] border-[var(--white)] max-w-[464px] h-[250px] bg-cover bg-center relative ${
@@ -95,7 +98,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
             }`}
           >
             <Image
-              src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.svg`}
+              src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.webp`}
               alt="Globe"
               width={30}
               height={30}

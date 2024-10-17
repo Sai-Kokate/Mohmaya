@@ -92,7 +92,7 @@ const Navbar = ({ isMobile = false }: NavbarProps) => {
               >
                 <div>
                   <Image
-                    src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.svg`}
+                    src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.webp`}
                     alt="Globe"
                     width={30}
                     height={30}
@@ -162,7 +162,7 @@ const Navbar = ({ isMobile = false }: NavbarProps) => {
               >
                 <div>
                   <Image
-                    src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.svg`}
+                    src={`${CONFIG.STATIC_IMGAE_ASSETS_URL}/globe.webp`}
                     alt="Globe"
                     width={30}
                     height={30}

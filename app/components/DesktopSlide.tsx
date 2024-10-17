@@ -1,16 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { SlideContentType } from "../constants/SlidesContent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const DesktopSlide = (slide: SlideContentType) => {
-  const [lowInnerHeight, setLowInnerHeight] = useState(false);
-
-  useEffect(() => {
-    if (window && window?.innerHeight < 601) {
-      setLowInnerHeight(true);
-    }
-  }, []);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <div className="flex flex-col justify-start items-center w-full">
@@ -29,13 +23,23 @@ const DesktopSlide = (slide: SlideContentType) => {
         </div>
 
         {/* Center column with T-shirt image */}
-        <div className="flex justify-center items-center h-full">
-          <Image
-            src={slide.tshirtImageUrl}
-            alt={slide.imageAltText}
-            width={lowInnerHeight ? 350 : 460}
-            height={lowInnerHeight ? 350 : 460}
-          />
+        <div className="flex flex-col justify-center items-center h-full">
+          <div
+            className="relative h-sm:w-[350px] h-sm:h-[350px] w-[460px] h-[460px] bg-cover bg-center"
+            style={{
+              backgroundImage: !isImageLoaded
+                ? `url(${slide.tshirtLoadingImageUrl})`
+                : "none",
+            }}
+          >
+            <Image
+              src={slide.tshirtImageUrl}
+              alt={slide.imageAltText}
+              fill
+              style={{ objectFit: "cover" }}
+              onLoad={() => setIsImageLoaded(true)}
+            />
+          </div>
         </div>
 
         {/* Right column with flex layout */}
